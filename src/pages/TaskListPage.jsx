@@ -72,27 +72,21 @@ const [error, setError] = useState("");
         ) : (
           <div style={styles.list}>
             {tasks.map((t) => (
-              <div key={t._id} style={styles.row}>
-                <div>
-                  <div style={styles.taskTitle}>{t.title}</div>
-                  <div style={styles.taskDesc}>{t.description}</div>
-                </div>
+            <div key={t._id} style={styles.row}>
+  <div style={styles.content}>
+    <div style={styles.taskTitle}>{t.title}</div>
+    <div style={styles.taskDesc}>{t.description}</div>
+  </div>
 
-                <div style={styles.actions}>
-                  <button
-                    style={styles.editBtn}
-                    onClick={() => navigate(`/edit/${t._id}`)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    style={styles.delBtn}
-                    onClick={() => handleDelete(t._id)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
+  <div style={styles.actions}>
+    <button style={styles.editBtn} onClick={() => navigate(`/edit/${t._id}`)}>
+      Edit
+    </button>
+    <button style={styles.delBtn} onClick={() => handleDelete(t._id)}>
+      Delete
+    </button>
+  </div>
+</div>
             ))}
           </div>
         )}
@@ -102,57 +96,111 @@ const [error, setError] = useState("");
 }
 
 const styles = {
-  page: { background: "#F2F2F2", minHeight: "100vh" },
-card: {
-  maxWidth: 1100,        // பெரிய screen-ல limit
-  width: "92%",          // phone/tablet-ல fit ஆகும்
-  margin: "30px auto",
-  background: "white",
-  borderRadius: 18,
-  padding: 24,
-  boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-},
-  heading: { margin: 0, marginBottom: 18 },
-  list: { display: "flex", flexDirection: "column", gap: 12 },
+  page: {
+    background: "#F2F2F2",
+    minHeight: "100vh",
+  },
+
+  card: {
+    maxWidth: 1100,
+    width: "min(94%, 1100px)", // ✅ mobile-friendly
+    margin: "20px auto",
+    background: "white",
+    borderRadius: 18,
+    padding: "clamp(16px, 2.5vw, 28px)", // ✅ responsive padding
+    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+  },
+
+  heading: {
+    margin: 0,
+    marginBottom: 18,
+    fontSize: "clamp(18px, 2.2vw, 26px)",
+    fontWeight: 800,
+  },
+
+  list: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 12,
+  },
+
   row: {
     background: "#FFFFFF",
     border: "1px solid #E5E7EB",
     borderRadius: 14,
     padding: 16,
+
     display: "flex",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "space-between",
+    gap: 14,
+
+    flexWrap: "wrap",     // ✅ mobile-ல stack ஆக allow
   },
-  taskTitle: { fontSize: 18, fontWeight: 700 },
-  taskDesc: { fontSize: 14, color: "#4B5563", marginTop: 4 },
-  actions: { display: "flex", gap: 10 },
+
+  // ✅ content area (title + desc) will shrink correctly
+  content: {
+    flex: "1 1 320px",
+    minWidth: 0,          // ✅ prevents overflow
+  },
+
+  taskTitle: {
+    fontSize: "clamp(16px, 1.6vw, 18px)",
+    fontWeight: 800,
+    lineHeight: 1.2,
+    wordBreak: "break-word",
+  },
+
+  taskDesc: {
+    fontSize: 14,
+    color: "#4B5563",
+    marginTop: 6,
+    lineHeight: 1.4,
+    wordBreak: "break-word",  // ✅ long text safe
+    whiteSpace: "pre-wrap",   // ✅ newlines keep (optional)
+  },
+
+  // ✅ actions align desktop-ல right, mobile-ல full width
+  actions: {
+    display: "flex",
+    gap: 10,
+    alignItems: "center",
+    justifyContent: "flex-end",
+
+    flex: "1 1 220px",     // ✅ wrap on small screens
+    minWidth: 200,
+  },
+
   editBtn: {
-    width: 90,
+    flex: 1,               // ✅ mobile-ல buttons equal width
+    minWidth: 110,
     height: 40,
     borderRadius: 12,
     border: "none",
     background: "#E5E7EB",
-    fontWeight: 600,
+    fontWeight: 700,
     cursor: "pointer",
   },
+
   delBtn: {
-    width: 100,
+    flex: 1,
+    minWidth: 110,
     height: 40,
     borderRadius: 12,
     border: "none",
     background: "#EF4444",
     color: "white",
-    fontWeight: 700,
+    fontWeight: 800,
     cursor: "pointer",
   },
-  errorBox: {
-  background: "#FEE2E2",
-  border: "1px solid #EF4444",
-  color: "#991B1B",
-  padding: "12px 14px",
-  borderRadius: 12,
-  marginBottom: 14,
-  fontWeight: 600,
-},
 
+  errorBox: {
+    background: "#FEE2E2",
+    border: "1px solid #EF4444",
+    color: "#991B1B",
+    padding: "12px 14px",
+    borderRadius: 12,
+    marginBottom: 14,
+    fontWeight: 600,
+  },
 };

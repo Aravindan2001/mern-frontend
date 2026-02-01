@@ -121,19 +121,36 @@ try {
 }
 
 const styles = {
-  page: { background: "#F2F2F2", minHeight: "100vh" },
- card: {
-  maxWidth: 800,
-  width: "92%",
-  margin: "20px auto",
-  background: "white",
-  borderRadius: 18,
-  padding: 28,
-  boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-},
+  page: {
+    background: "#F2F2F2",
+    minHeight: "100vh",
+  },
 
-  heading: { margin: 0, marginBottom: 20 },
-  label: { display: "block", fontWeight: 700, marginBottom: 8 },
+  // ✅ center layout for all devices
+  card: {
+    maxWidth: 820,          // desktop limit
+    width: "min(94%, 820px)", // ✅ mobile-friendly
+    margin: "18px auto",
+    background: "white",
+    borderRadius: 18,
+    padding: "clamp(16px, 2.5vw, 28px)", // ✅ auto padding (mobile->desktop)
+    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+  },
+
+  heading: {
+    margin: 0,
+    marginBottom: 18,
+    fontSize: "clamp(18px, 2.2vw, 26px)", // ✅ responsive heading
+    fontWeight: 800,
+  },
+
+  label: {
+    display: "block",
+    fontWeight: 700,
+    marginBottom: 8,
+    fontSize: "clamp(14px, 1.4vw, 15px)",
+  },
+
   input: {
     width: "100%",
     height: 48,
@@ -144,20 +161,33 @@ const styles = {
     outline: "none",
     fontSize: 15,
   },
+
   textarea: {
     width: "100%",
-    height: 160,
+    minHeight: 120,
+    height: 140,
     borderRadius: 12,
     border: "1px solid #CBD5E1",
     background: "#F1F5F9",
     padding: 14,
     outline: "none",
     fontSize: 15,
-    resize: "none",
+    resize: "vertical",
   },
-  btnRow: { display: "flex", gap: 12, marginTop: 20 },
+
+  // ✅ buttons will be side-by-side on desktop, stacked on mobile
+  btnRow: {
+    display: "flex",
+    gap: 12,
+    marginTop: 20,
+    flexWrap: "wrap",            // ✅ mobile: next line
+    alignItems: "stretch",
+   
+  },
+
   saveBtn: {
-    width: 220,
+    flex: "1 1 220px",           // ✅ grow + wrap
+    minWidth: 160,
     height: 50,
     borderRadius: 22,
     border: "none",
@@ -166,8 +196,10 @@ const styles = {
     fontWeight: 800,
     cursor: "pointer",
   },
+
   cancelBtn: {
-    width: 160,
+    flex: "1 1 160px",           // ✅ grow + wrap
+    minWidth: 140,
     height: 50,
     borderRadius: 22,
     border: "none",
@@ -175,24 +207,28 @@ const styles = {
     fontWeight: 800,
     cursor: "pointer",
   },
-   errorBox: {
-  background: "#FEE2E2",
-  border: "1px solid #EF4444",
-  color: "#991B1B",
-  padding: "12px 14px",
-  borderRadius: 12,
-  marginBottom: 14,
-  fontWeight: 600,
-},
-errorText: {
-  margin: "8px 0 0",
-  color: "#B91C1C",
-  fontWeight: 600,
-  fontSize: 14,
-},
-inputError: {
-  border: "1px solid #EF4444",
-  background: "#FEF2F2",
-},
 
+  errorBox: {
+    background: "#FEE2E2",
+    border: "1px solid #EF4444",
+    color: "#991B1B",
+    padding: "12px 14px",
+    borderRadius: 12,
+    marginBottom: 14,
+    fontWeight: 600,
+    fontSize: 14,
+    lineHeight: 1.4,
+  },
+
+  errorText: {
+    margin: "8px 0 0",
+    color: "#B91C1C",
+    fontWeight: 600,
+    fontSize: 14,
+  },
+
+  inputError: {
+    border: "1px solid #EF4444",
+    background: "#FEF2F2",
+  },
 };

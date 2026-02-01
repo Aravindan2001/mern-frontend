@@ -74,16 +74,11 @@ if (titleMsg) {
   return (
     <div style={{ background: "#F2F2F2", minHeight: "100vh" }}>
       <Navbar />
-      <div style={{
-  maxWidth: 800,
-  width: "92%",
-  margin: "20px auto",
-  background: "white",
-  padding: 24,
-  borderRadius: 18
-}}>
+  <div style={styles.card}>
 
-        <h2>Edit Task</h2>
+
+      <h2 style={styles.heading}>Edit Task</h2>
+
         {error && <div style={styles.errorBox}>{error}</div>}
 
 
@@ -117,7 +112,7 @@ if (titleMsg) {
 
  >
     {saving ? "Updating..." : "Update"}
-  Update
+ 
 </button>
 
 
@@ -142,7 +137,30 @@ if (titleMsg) {
 }
 
 const styles = {
-  label: { display: "block", fontWeight: 700, marginBottom: 8 },
+  card: {
+    maxWidth: 820,
+    width: "min(94%, 820px)",     // ✅ mobile-friendly
+    margin: "18px auto",
+    background: "white",
+    borderRadius: 18,
+    padding: "clamp(16px, 2.5vw, 28px)", // ✅ responsive padding
+    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+  },
+
+  heading: {
+    margin: 0,
+    marginBottom: 18,
+    fontSize: "clamp(18px, 2.2vw, 26px)",
+    fontWeight: 800,
+  },
+
+  label: {
+    display: "block",
+    fontWeight: 700,
+    marginBottom: 8,
+    fontSize: "clamp(14px, 1.4vw, 15px)",
+  },
+
   input: {
     width: "100%",
     height: 48,
@@ -153,50 +171,61 @@ const styles = {
     outline: "none",
     fontSize: 15,
   },
+
   textarea: {
     width: "100%",
-    height: 160,
+    minHeight: 120,
+    height: 140,
     borderRadius: 12,
     border: "1px solid #CBD5E1",
     background: "#F1F5F9",
     padding: 14,
     outline: "none",
     fontSize: 15,
-    resize: "none",
+    resize: "vertical",
   },
 
-  btnRow: { 
+  // ✅ buttons row responsive (mobile-ல stack)
+  btnRow: {
     display: "flex",
-    gap: 12, 
-    marginTop: 20 },
+    gap: 12,
+    marginTop: 20,
+    flexWrap: "wrap",          // ✅ wrap on small screens
+    alignItems: "stretch",
+  },
 
-updateBtn: {
-  width: 220,
-  height: 50,
-  borderRadius: 22,
-  border: "none",
-  background: "#10B981",
-  color: "white",
-  fontWeight: 800,
-  cursor: "pointer",
-},
-cancelBtn: {
-  width: 160,
-  height: 50,
-  borderRadius: 22,
-  border: "none",
-  background: "#E5E7EB",
-  fontWeight: 800,
-  cursor: "pointer",
-},
-errorBox: {
-  background: "#FEE2E2",
-  border: "1px solid #EF4444",
-  color: "#991B1B",
-  padding: "12px 14px",
-  borderRadius: 12,
-  marginBottom: 14,
-  fontWeight: 600,
-},
+  updateBtn: {
+    flex: "1 1 220px",         // ✅ grows + wraps
+    minWidth: 160,
+    height: 50,
+    borderRadius: 22,
+    border: "none",
+    background: "#10B981",
+    color: "white",
+    fontWeight: 800,
+    cursor: "pointer",
+  },
 
+  cancelBtn: {
+    flex: "1 1 160px",
+    minWidth: 140,
+    height: 50,
+    borderRadius: 22,
+    border: "none",
+    background: "#E5E7EB",
+    fontWeight: 800,
+    cursor: "pointer",
+  },
+
+  errorBox: {
+    background: "#FEE2E2",
+    border: "1px solid #EF4444",
+    color: "#991B1B",
+    padding: "12px 14px",
+    borderRadius: 12,
+    marginBottom: 14,
+    fontWeight: 600,
+    fontSize: 14,
+    lineHeight: 1.4,
+  },
 };
