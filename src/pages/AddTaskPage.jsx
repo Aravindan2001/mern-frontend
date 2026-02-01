@@ -63,7 +63,7 @@ try {
 };
 
   return (
-    
+
     <div style={styles.page}>
       <Navbar />
 
@@ -122,14 +122,16 @@ try {
 
 const styles = {
   page: { background: "#F2F2F2", minHeight: "100vh" },
-  card: {
-    width: 800,
-    margin: "30px auto",
-    background: "white",
-    borderRadius: 18,
-    padding: 28,
-    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-  },
+ card: {
+  maxWidth: 800,
+  width: "92%",
+  margin: "20px auto",
+  background: "white",
+  borderRadius: 18,
+  padding: 28,
+  boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+},
+
   heading: { margin: 0, marginBottom: 20 },
   label: { display: "block", fontWeight: 700, marginBottom: 8 },
   input: {

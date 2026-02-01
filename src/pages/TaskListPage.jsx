@@ -103,14 +103,15 @@ const [error, setError] = useState("");
 
 const styles = {
   page: { background: "#F2F2F2", minHeight: "100vh" },
-  card: {
-    width: 1100,
-    margin: "30px auto",
-    background: "white",
-    borderRadius: 18,
-    padding: 24,
-    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-  },
+card: {
+  maxWidth: 1100,        // பெரிய screen-ல limit
+  width: "92%",          // phone/tablet-ல fit ஆகும்
+  margin: "30px auto",
+  background: "white",
+  borderRadius: 18,
+  padding: 24,
+  boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+},
   heading: { margin: 0, marginBottom: 18 },
   list: { display: "flex", flexDirection: "column", gap: 12 },
   row: {

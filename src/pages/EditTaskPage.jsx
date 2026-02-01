@@ -74,7 +74,15 @@ if (titleMsg) {
   return (
     <div style={{ background: "#F2F2F2", minHeight: "100vh" }}>
       <Navbar />
-      <div style={{ width: 800, margin: "30px auto", background: "white", padding: 24, borderRadius: 18 }}>
+      <div style={{
+  maxWidth: 800,
+  width: "92%",
+  margin: "20px auto",
+  background: "white",
+  padding: 24,
+  borderRadius: 18
+}}>
+
         <h2>Edit Task</h2>
         {error && <div style={styles.errorBox}>{error}</div>}
 
