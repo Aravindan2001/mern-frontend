@@ -140,7 +140,7 @@ const styles = {
   heading: {
     margin: 0,
     marginBottom: 18,
-    fontSize: "clamp(18px, 2.2vw, 26px)", // ✅ responsive heading
+    fontSize: "clamp(20px, 1.1vw, 26px)", // ✅ responsive heading
     fontWeight: 800,
   },
 
@@ -152,7 +152,7 @@ const styles = {
   },
 
   input: {
-    width: "100%",
+     width: "min(100%, 800px)",
     height: 48,
     borderRadius: 12,
     border: "1px solid #CBD5E1",
@@ -163,7 +163,7 @@ const styles = {
   },
 
   textarea: {
-    width: "min(100%, 480px)",
+    width: "min(100%, 800px)",
     minHeight: 120,
     height: 140,
     borderRadius: 12,

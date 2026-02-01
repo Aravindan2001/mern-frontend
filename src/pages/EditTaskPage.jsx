@@ -162,7 +162,7 @@ const styles = {
   },
 
   input: {
-    width: "100%",
+    width: "min(100%, 800px)",
     height: 48,
     borderRadius: 12,
     border: "1px solid #CBD5E1",
@@ -173,7 +173,7 @@ const styles = {
   },
 
   textarea: {
-    width: "100%",
+    width: "min(100%, 800px)",
     minHeight: 120,
     height: 140,
     borderRadius: 12,
