@@ -145,6 +145,7 @@ const styles = {
     borderRadius: 18,
     padding: "clamp(16px, 2.5vw, 28px)", // ✅ responsive padding
     boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+     overflow: "hidden",
   },
 
   heading: {
@@ -163,6 +164,7 @@ const styles = {
 
   input: {
     width: "min(100%, 800px)",
+      boxSizing: "border-box",   // ✅ FIX
     height: 48,
     borderRadius: 12,
     border: "1px solid #CBD5E1",
@@ -174,6 +176,7 @@ const styles = {
 
   textarea: {
     width: "min(100%, 800px)",
+      boxSizing: "border-box",   // ✅ FIX
     minHeight: 120,
     height: 140,
     borderRadius: 12,

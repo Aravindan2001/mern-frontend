@@ -135,6 +135,7 @@ const styles = {
     borderRadius: 18,
     padding: "clamp(16px, 2.5vw, 28px)", // ✅ auto padding (mobile->desktop)
     boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+     overflow: "hidden",
   },
 
   heading: {
@@ -155,6 +156,7 @@ const styles = {
      width: "min(100%, 800px)",
     height: 48,
     borderRadius: 12,
+      boxSizing: "border-box",   // ✅ FIX
     border: "1px solid #CBD5E1",
     background: "#F1F5F9",
     padding: "0 14px",
@@ -164,6 +166,7 @@ const styles = {
 
   textarea: {
     width: "min(100%, 800px)",
+      boxSizing: "border-box",   // ✅ FIX
     minHeight: 120,
     height: 140,
     borderRadius: 12,
