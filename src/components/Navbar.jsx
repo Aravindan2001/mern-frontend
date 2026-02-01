@@ -1,36 +1,35 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function Navbar(){
-    return(
-        <div style={styles.nav}>
-            <div style={styles.title}>Task Management</div>
-            <Link to="/add" style={styles.addBtn}>
-            Add Task
-            </Link>
+export default function Navbar() {
+  return (
+    <div style={styles.nav}>
+      <div style={styles.title}>Task Management</div>
 
-           
-        </div>
-    );
+      <Link to="/add" style={styles.addBtn}>
+        Add Task
+      </Link>
+    </div>
+  );
 }
 
 const styles = {
- nav: {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  padding: "14px 16px",
-  flexWrap: "wrap",   // ✅ small screen-ல wrap ஆகும்
-  gap: 12,
-},
-title: {
-  fontSize: 22,
-  fontWeight: 800,
-},
-right: {
-  display: "flex",
-  gap: 10,
-  alignItems: "center",
-},
+  nav: {
+    minHeight: 70,
+    background: "#6B667D",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "14px 18px",
+    flexWrap: "wrap",      // ✅ mobile support
+    gap: 12,               // ✅ spacing
+  },
+
+  title: {
+    color: "white",
+    fontSize: "clamp(18px, 2vw, 22px)", // ✅ responsive font
+    fontWeight: 800,
+    letterSpacing: 1,
+  },
 
   addBtn: {
     background: "#2563EB",
@@ -38,7 +37,8 @@ right: {
     padding: "10px 18px",
     borderRadius: 22,
     textDecoration: "none",
-    fontWeight: 600,
-
- }
+    fontWeight: 700,
+    display: "inline-block",
+    whiteSpace: "nowrap",   // ✅ button text break ஆகாது
+  },
 };
