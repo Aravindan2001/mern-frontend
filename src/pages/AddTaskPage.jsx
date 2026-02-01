@@ -185,11 +185,13 @@ const styles = {
     marginTop: 20,
     flexWrap: "wrap",            // ✅ mobile: next line
     alignItems: "stretch",
+    justifyContent: "left",
    
   },
 
   saveBtn: {
     flex: "1 1 220px",           // ✅ grow + wrap
+    maxWidth: 220,  
     minWidth: 160,
     height: 50,
     borderRadius: 22,
@@ -201,7 +203,8 @@ const styles = {
   },
 
   cancelBtn: {
-    flex: "1 1 160px",           // ✅ grow + wrap
+    flex: "1 1 160px",  // ✅ grow + wrap
+    maxWidth: 200,           
     minWidth: 140,
     height: 50,
     borderRadius: 22,

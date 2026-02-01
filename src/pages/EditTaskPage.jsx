@@ -177,6 +177,7 @@ const styles = {
   textarea: {
     width: "min(100%, 800px)",
       boxSizing: "border-box",   // ✅ FIX
+
     minHeight: 120,
     height: 140,
     borderRadius: 12,
@@ -195,10 +196,12 @@ const styles = {
     marginTop: 20,
     flexWrap: "wrap",          // ✅ wrap on small screens
     alignItems: "stretch",
+    justifyContent: "left",
   },
 
   updateBtn: {
-    flex: "1 1 220px",         // ✅ grows + wraps
+    flex: "1 1 220px",    // ✅ grows + wraps
+     maxWidth: 220,       
     minWidth: 160,
     height: 50,
     borderRadius: 22,
@@ -211,6 +214,7 @@ const styles = {
 
   cancelBtn: {
     flex: "1 1 160px",
+    maxWidth: 200,    
     minWidth: 140,
     height: 50,
     borderRadius: 22,
