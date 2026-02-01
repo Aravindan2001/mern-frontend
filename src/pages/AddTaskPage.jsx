@@ -163,7 +163,7 @@ const styles = {
   },
 
   textarea: {
-    width: "100%",
+    width: "min(100%, 480px)",
     minHeight: 120,
     height: 140,
     borderRadius: 12,
